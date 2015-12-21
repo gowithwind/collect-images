@@ -30,4 +30,20 @@ function loadImage(src){
 		});
 	}
 }
-window.load = init();
+//disable menu when ctrlkey down
+window.addEventListener("contextmenu", function(e) { if (e.ctrlKey)e.preventDefault(); })
+//window.load = init();
+//
+document.querySelector('body').addEventListener('mousedown', function(event) {
+  if (event.ctrlKey&&event.target.tagName.toLowerCase() === 'img') {
+  	event.preventDefault();
+  	var image=event.target;
+    if(!image.getAttribute("added")){
+    	//image.style.border='2px solid #E8272C';
+    	image.style.webkitFilter= 'grayscale(100%)';
+    	console.log('collect it!',image);
+    	loadImage(image.src);
+    	image.setAttribute("added","1");
+    }
+  }
+});

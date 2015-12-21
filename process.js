@@ -13,7 +13,10 @@ function init(){
 					    img.onload = function(){
 					    	console.log(img.width);
 					    	if(img.width>min_width){
-					    		$(".photo").append("<div class='box'><div class='shadow' name = '"+request.greeting+"'></div><img class='cen'  src ="+request.greeting+"></div>");
+					    		$(".photo").append("<div class='box'><div class='shadow' name = '"+request.greeting+"'></div>"
+					    			+"<img class='cen'  src ="+request.greeting+">"
+					    			+"<span class='info'>306x480</span>"
+					    			+"</div>");
 					    	}
 					        	
 					    };
